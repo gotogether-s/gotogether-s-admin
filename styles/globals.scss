@@ -1,0 +1,13 @@
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+body {
+  font-size: 1.6rem;
+  // temporary style code to have the same font design as MUI
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.87);
+}
+p {
+  margin: 0;
+}
