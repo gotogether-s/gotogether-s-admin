@@ -13,12 +13,20 @@ const productNameProps = {
   placeholder: '제목을 입력하세요',
 }
 
+const basicPriceProps = {
+  label: '가격',
+  name: 'basicPrice',
+  placeholder: '숫자만 입력하세요',
+  price: true,
+}
+
 const Info = () => {
   return (
     <>
       <h2 className={style['section-title']}>여행정보 (상단)</h2>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
+      <Input {...basicPriceProps} />
     </>
   )
 }
