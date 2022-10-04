@@ -4,6 +4,7 @@ import theme from '@styles/theme'
 import Layout from '@components/Layout'
 import SideBar from '@components/SideBar'
 import '@styles/reset.css'
+import '@styles/muiOverride.scss'
 import '@styles/globals.scss'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
