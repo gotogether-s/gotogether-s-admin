@@ -1,7 +1,11 @@
-import React from 'react'
+import HeadInfo from 'components/HeadInfo'
 
 const Home = () => {
-  return <div>Home</div>
+  return (
+    <>
+      <HeadInfo title='상품 추가' />
+    </>
+  )
 }
 
 export default Home
