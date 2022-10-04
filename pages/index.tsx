@@ -1,5 +1,5 @@
 import HeadInfo from '@components/HeadInfo'
-import AddProduct from '@pages/AddProduct'
+import AddProduct from '@components/AddProduct'
 
 const Home = () => {
   return (
