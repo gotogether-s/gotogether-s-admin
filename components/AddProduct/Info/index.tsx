@@ -7,11 +7,18 @@ const thumbnailProps = {
   placeholder: '이미지 url을 입력해주세요',
 }
 
+const productNameProps = {
+  label: '여행 상품 제목',
+  name: 'productName',
+  placeholder: '제목을 입력하세요',
+}
+
 const Info = () => {
   return (
     <>
       <h2 className={style['section-title']}>여행정보 (상단)</h2>
       <Input {...thumbnailProps} />
+      <Input {...productNameProps} />
     </>
   )
 }
