@@ -1,16 +1,30 @@
-import { TextField } from '@mui/material'
+import { TextField, InputAdornment } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { update } from '@store/addProductSlice'
+import { useState } from 'react'
 import style from './Input.module.scss'
 
 const Input = props => {
-  const { label, name, placeholder } = props
+  const { label, name, placeholder, price } = props
 
   const dispatch = useDispatch()
 
-  const updateAddProductState = e => {
+  const [value, setValue] = useState('')
+
+  const updateAddProductState = (e, price) => {
     const { name, value } = e.target
-    dispatch(update({ name, value }))
+    setValue(value)
+    if (price) {
+      const unformattedPrice = value.replaceAll(',', '')
+      setValue(
+        Number(unformattedPrice)
+          .toString()
+          .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+      )
+      dispatch(update({ name, value: unformattedPrice }))
+    } else {
+      dispatch(update({ name, value }))
+    }
   }
 
   return (
@@ -20,8 +34,14 @@ const Input = props => {
         sx={{ width: '100%' }}
         size='small'
         name={name}
+        value={value}
         placeholder={placeholder}
-        onChange={updateAddProductState}
+        onChange={() => updateAddProductState(event, price)}
+        InputProps={{
+          endAdornment: price && (
+            <InputAdornment position='end'>원</InputAdornment>
+          ),
+        }}
       />
     </div>
   )
