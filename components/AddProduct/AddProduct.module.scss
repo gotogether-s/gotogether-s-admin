@@ -9,23 +9,22 @@
   }
 }
 
-.flex-wrapper {
+.add-option {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  .section-title {
-    margin-bottom: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0.25rem;
+  color: #1f39ff;
+  &:hover {
+    cursor: pointer;
   }
-  .add-option {
-    display: flex;
-    align-items: flex-end;
-    color: #1f39ff;
-    &:hover {
-      cursor: pointer;
-    }
-    span {
-      padding-bottom: 0.1rem;
-    }
+  span {
+    padding-bottom: 0.1rem;
   }
+}
+
+.option-wrapper {
+  margin-bottom: 3rem;
 }
