@@ -32,11 +32,10 @@ const AddProduct = () => {
           </div>
           {options.map((option, index) => {
             return (
-              <div
-                className={style['option-wrapper']}
-                key={index}>
-                <Option index={index} />
-              </div>
+              <Option
+                key={index}
+                index={index}
+              />
             )
           })}
         </section>

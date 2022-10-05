@@ -28,12 +28,12 @@ const Option = ({ index }) => {
   }
 
   return (
-    <>
+    <div style={{ marginTop: index && '3rem' }}>
       <h3 className={style['section-subtitle']}>여행옵션 {index + 1}</h3>
       <Input {...optionDtoListNameProps} />
       <Input {...optionDtoListValueProps} />
       <Input {...optionDtoListAdditionalProps} />
-    </>
+    </div>
   )
 }
 
