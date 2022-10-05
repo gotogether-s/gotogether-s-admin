@@ -1,3 +1,25 @@
 .section-subtitle {
   margin-bottom: 1rem;
 }
+
+.flex-wrapper {
+  display: flex;
+  gap: 2rem;
+  div:first-child {
+    flex-grow: 5;
+  }
+  div:nth-child(2) {
+    flex-grow: 1;
+  }
+}
+
+.add-option {
+  display: flex;
+  align-items: flex-end;
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    padding-bottom: 0.1rem;
+  }
+}

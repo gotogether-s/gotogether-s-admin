@@ -1,3 +1,4 @@
+import AddIcon from '@mui/icons-material/Add'
 import Input from '@components/Input'
 import style from './Option.module.scss'
 
@@ -27,12 +28,24 @@ const Option = ({ index }) => {
     optionNumber: index,
   }
 
+  const AddOption = () => {
+    // Add new option here...
+  }
+
   return (
     <div style={{ marginTop: index && '3rem' }}>
       <h3 className={style['section-subtitle']}>여행옵션 {index + 1}</h3>
       <Input {...optionDtoListNameProps} />
-      <Input {...optionDtoListValueProps} />
-      <Input {...optionDtoListAdditionalProps} />
+      <div className={style['flex-wrapper']}>
+        <Input {...optionDtoListValueProps} />
+        <Input {...optionDtoListAdditionalProps} />
+      </div>
+      <div
+        className={style['add-option']}
+        onClick={AddOption}>
+        <AddIcon />
+        <span>항목 추가하기</span>
+      </div>
     </div>
   )
 }
