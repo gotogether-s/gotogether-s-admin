@@ -1,6 +1,31 @@
 .page-title {
   margin-bottom: 2rem;
 }
-.section-title {
+
+.section {
+  margin-bottom: 5rem;
+  .section-title {
+    margin-bottom: 2rem;
+  }
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 2rem;
+  .section-title {
+    margin-bottom: 0;
+  }
+  .add-option {
+    display: flex;
+    align-items: flex-end;
+    color: #1f39ff;
+    &:hover {
+      cursor: pointer;
+    }
+    span {
+      padding-bottom: 0.1rem;
+    }
+  }
 }
