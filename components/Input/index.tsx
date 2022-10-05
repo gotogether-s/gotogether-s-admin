@@ -14,7 +14,9 @@ const Input = props => {
   const updateAddProductState = (e, price) => {
     const { name, value } = e.target
     setValue(value)
-    if (price) {
+    if (name === 'optionDtoList') {
+      // Update addProductSlice Data here...
+    } else if (price) {
       const unformattedPrice = value.replaceAll(',', '')
       setValue(
         Number(unformattedPrice)
