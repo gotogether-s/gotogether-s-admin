@@ -23,7 +23,6 @@ const basicPriceProps = {
 const Info = () => {
   return (
     <>
-      <h2 className={style['section-title']}>여행정보 (상단)</h2>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
       <Input {...basicPriceProps} />
