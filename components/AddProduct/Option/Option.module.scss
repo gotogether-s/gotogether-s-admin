@@ -1,5 +1,8 @@
-.section-subtitle {
-  margin-bottom: 1rem;
+.section-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .option-list {

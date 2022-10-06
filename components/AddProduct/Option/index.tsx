@@ -2,6 +2,7 @@ import AddIcon from '@mui/icons-material/Add'
 import CloseIcon from '@mui/icons-material/Close'
 import { useState } from 'react'
 import Input from '@components/Input'
+import RadioButton from '@components/RadioButton'
 import OptionList from './OptionList'
 import style from './Option.module.scss'
 
@@ -12,6 +13,14 @@ const Option = ({ optionIndex }) => {
     subName: 'name',
     placeholder: '옵션 이름을 입력하세요',
     optionNumber: optionIndex,
+  }
+
+  const optionDtoListRequiredProps = {
+    label: null,
+    name: 'optionDtoList',
+    subName: 'required',
+    optionNumber: optionIndex,
+    radioButtonLists: ['필수옵션', '선택옵션'],
   }
 
   const [optionLists, setOptionLists] = useState([<OptionList />])
@@ -28,7 +37,10 @@ const Option = ({ optionIndex }) => {
 
   return (
     <div style={{ marginTop: optionIndex && '3rem' }}>
-      <h3 className={style['section-subtitle']}>여행옵션 {optionIndex + 1}</h3>
+      <div className={style['section-subtitle-wrapper']}>
+        <h3>여행옵션 {optionIndex + 1}</h3>
+        <RadioButton {...optionDtoListRequiredProps} />
+      </div>
       <Input {...optionDtoListNameProps} />
       {optionLists.map((optionList, optionListIndex) => {
         return (
