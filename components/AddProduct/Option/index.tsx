@@ -2,13 +2,13 @@ import AddIcon from '@mui/icons-material/Add'
 import Input from '@components/Input'
 import style from './Option.module.scss'
 
-const Option = ({ index }) => {
+const Option = ({ optionIndex }) => {
   const optionDtoListNameProps = {
     label: '옵션 이름',
     name: 'optionDtoList',
     subName: 'name',
     placeholder: '옵션 이름을 입력하세요',
-    optionNumber: index,
+    optionNumber: optionIndex,
   }
 
   const optionDtoListValueProps = {
@@ -16,7 +16,7 @@ const Option = ({ index }) => {
     name: 'optionDtoList',
     subName: 'value',
     placeholder: '항목을 입력하세요',
-    optionNumber: index,
+    optionNumber: optionIndex,
   }
 
   const optionDtoListAdditionalProps = {
@@ -25,7 +25,7 @@ const Option = ({ index }) => {
     subName: 'additional',
     placeholder: '숫자만 입력하세요',
     price: true,
-    optionNumber: index,
+    optionNumber: optionIndex,
   }
 
   const AddOption = () => {
@@ -33,8 +33,8 @@ const Option = ({ index }) => {
   }
 
   return (
-    <div style={{ marginTop: index && '3rem' }}>
-      <h3 className={style['section-subtitle']}>여행옵션 {index + 1}</h3>
+    <div style={{ marginTop: optionIndex && '3rem' }}>
+      <h3 className={style['section-subtitle']}>여행옵션 {optionIndex + 1}</h3>
       <Input {...optionDtoListNameProps} />
       <div className={style['flex-wrapper']}>
         <Input {...optionDtoListValueProps} />

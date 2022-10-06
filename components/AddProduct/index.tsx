@@ -30,11 +30,11 @@ const AddProduct = () => {
             <AddIcon />
             <span>여행옵션 추가하기</span>
           </div>
-          {options.map((option, index) => {
+          {options.map((option, optionIndex) => {
             return (
               <Option
-                key={index}
-                index={index}
+                key={optionIndex}
+                optionIndex={optionIndex}
               />
             )
           })}
