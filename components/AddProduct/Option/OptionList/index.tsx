@@ -1,7 +1,7 @@
 import Input from '@components/Input'
 import style from './OptionList.module.scss'
 
-const OptionList = optionIndex => {
+const OptionList = ({ optionIndex }) => {
   const optionDtoListValueProps = {
     label: '항목',
     name: 'value',
