@@ -1,6 +1,6 @@
 import { TextField, InputAdornment } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { update } from '@store/addProductSlice'
+import { update, optionUpdate } from '@store/addProductSlice'
 import { useState } from 'react'
 import style from './Input.module.scss'
 
@@ -11,19 +11,27 @@ const Input = props => {
 
   const [value, setValue] = useState('')
 
-  const updateAddProductState = (e, price) => {
+  const updateAddProductState = (e, price, optionDtoList, optionIndex) => {
     const { name, value } = e.target
     setValue(value)
-    if (optionDtoList) {
-      // Update optionDtoList Data here...
-    } else if (price) {
+    if (price) {
       const unformattedPrice = value.replaceAll(',', '')
       setValue(
         Number(unformattedPrice)
           .toString()
           .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
       )
-      dispatch(update({ name, value: unformattedPrice }))
+      optionDtoList
+        ? dispatch(
+            optionUpdate({
+              name,
+              value: parseInt(unformattedPrice),
+              optionIndex,
+            })
+          )
+        : dispatch(update({ name, value: unformattedPrice }))
+    } else if (optionDtoList) {
+      // Update optionDtoList Data here...
     } else {
       dispatch(update({ name, value }))
     }
@@ -38,7 +46,9 @@ const Input = props => {
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={() => updateAddProductState(event, price)}
+        onChange={() =>
+          updateAddProductState(event, price, optionDtoList, optionIndex)
+        }
         InputProps={{
           endAdornment: price && (
             <InputAdornment position='end'>원</InputAdornment>
