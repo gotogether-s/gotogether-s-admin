@@ -1,18 +1,41 @@
 import { RadioGroup, FormControlLabel, Radio } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { optionUpdate } from '@store/addProductSlice'
+import { useState } from 'react'
 import style from './RadioButton.module.scss'
 
 const RadioButton = props => {
-  const { label, radioButtonLists } = props
+  const { label, name, optionNumber, valueLists } = props
+
+  const dispatch = useDispatch()
+
+  const [value, setValue] = useState('')
+
+  const updateAddProductStateFromRadio = e => {
+    const { name, value } = e.target
+    setValue(value)
+    if (value === '필수옵션') {
+      dispatch(optionUpdate({ name, value: true, optionNumber }))
+    } else if (value === '선택옵션') {
+      dispatch(optionUpdate({ name, value: false, optionNumber }))
+    } else {
+      dispatch(optionUpdate({ name, value, optionNumber }))
+    }
+  }
 
   return (
     <>
       <div className={style['label']}>{label}</div>
-      <RadioGroup row>
-        {radioButtonLists.map((radioButtonList, index) => (
+      <RadioGroup
+        row
+        name={name}
+        value={value}
+        onChange={updateAddProductStateFromRadio}>
+        {valueLists.map((valueList, index) => (
           <FormControlLabel
             key={index}
-            value={radioButtonList}
-            label={radioButtonList}
+            value={valueList}
+            label={valueList}
             control={<Radio />}
           />
         ))}
