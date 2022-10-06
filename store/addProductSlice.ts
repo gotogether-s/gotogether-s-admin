@@ -20,6 +20,7 @@ const initialState = {
       name: '',
       value: '',
       additional: 0,
+      required: '',
     },
   ],
 }
@@ -35,9 +36,27 @@ const addProductSlice = createSlice({
       )
       state[initialStateKey] = value
     },
+    optionUpdate: (state, action) => {
+      const { name, value, optionNumber } = action.payload
+      const option = state.optionDtoList[optionNumber]
+      if (option) {
+        console.log(true)
+        option[`${name}`] = value
+      } else {
+        console.log(false)
+        const newOption = {
+          name: '',
+          value: '',
+          additional: 0,
+          required: '',
+        }
+        state.optionDtoList.push(newOption)
+        state.optionDtoList[optionNumber][`${name}`] = value
+      }
+    },
   },
 })
 
 export default addProductSlice
 
-export const { update } = addProductSlice.actions
+export const { update, optionUpdate } = addProductSlice.actions
