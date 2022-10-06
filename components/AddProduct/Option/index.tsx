@@ -11,14 +11,16 @@ const Option = ({ optionIndex }) => {
     label: '옵션 이름',
     name: 'name',
     placeholder: '옵션 이름을 입력하세요',
-    optionNumber: optionIndex,
+    optionDtoList: true,
+    optionIndex: optionIndex,
   }
 
   const optionDtoListRequiredProps = {
     label: null,
     name: 'required',
-    optionNumber: optionIndex,
     valueLists: ['필수옵션', '선택옵션'],
+    optionDtoList: true,
+    optionIndex: optionIndex,
   }
 
   const [optionLists, setOptionLists] = useState([<OptionList />])

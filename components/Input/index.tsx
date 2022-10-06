@@ -5,7 +5,7 @@ import { useState } from 'react'
 import style from './Input.module.scss'
 
 const Input = props => {
-  const { label, name, placeholder, price } = props
+  const { label, name, placeholder, price, optionDtoList, optionIndex } = props
 
   const dispatch = useDispatch()
 
@@ -14,8 +14,8 @@ const Input = props => {
   const updateAddProductState = (e, price) => {
     const { name, value } = e.target
     setValue(value)
-    if (name === 'optionDtoList') {
-      // Update addProductSlice Data here...
+    if (optionDtoList) {
+      // Update optionDtoList Data here...
     } else if (price) {
       const unformattedPrice = value.replaceAll(',', '')
       setValue(

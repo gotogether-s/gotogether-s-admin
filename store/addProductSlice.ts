@@ -37,8 +37,8 @@ const addProductSlice = createSlice({
       state[initialStateKey] = value
     },
     optionUpdate: (state, action) => {
-      const { name, value, optionNumber } = action.payload
-      const option = state.optionDtoList[optionNumber]
+      const { name, value, optionIndex } = action.payload
+      const option = state.optionDtoList[optionIndex]
       if (option) {
         option[`${name}`] = value
       } else {
@@ -49,7 +49,7 @@ const addProductSlice = createSlice({
           required: '',
         }
         state.optionDtoList.push(newOption)
-        state.optionDtoList[optionNumber][`${name}`] = value
+        state.optionDtoList[optionIndex][`${name}`] = value
       }
     },
   },

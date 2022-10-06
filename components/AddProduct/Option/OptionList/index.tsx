@@ -4,19 +4,19 @@ import style from './OptionList.module.scss'
 const OptionList = optionIndex => {
   const optionDtoListValueProps = {
     label: '항목',
-    name: 'optionDtoList',
-    subName: 'value',
+    name: 'value',
     placeholder: '항목을 입력하세요',
-    optionNumber: optionIndex,
+    optionDtoList: true,
+    optionIndex: optionIndex,
   }
 
   const optionDtoListAdditionalProps = {
     label: '추가금액 (선택사항)',
-    name: 'optionDtoList',
-    subName: 'additional',
+    name: 'additional',
     placeholder: '숫자만 입력하세요',
     price: true,
-    optionNumber: optionIndex,
+    optionDtoList: true,
+    optionIndex: optionIndex,
   }
 
   return (

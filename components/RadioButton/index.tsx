@@ -5,7 +5,7 @@ import { useState } from 'react'
 import style from './RadioButton.module.scss'
 
 const RadioButton = props => {
-  const { label, name, optionNumber, valueLists } = props
+  const { label, name, optionIndex, valueLists } = props
 
   const dispatch = useDispatch()
 
@@ -15,11 +15,11 @@ const RadioButton = props => {
     const { name, value } = e.target
     setValue(value)
     if (value === '필수옵션') {
-      dispatch(optionUpdate({ name, value: true, optionNumber }))
+      dispatch(optionUpdate({ name, value: true, optionIndex }))
     } else if (value === '선택옵션') {
-      dispatch(optionUpdate({ name, value: false, optionNumber }))
+      dispatch(optionUpdate({ name, value: false, optionIndex }))
     } else {
-      dispatch(optionUpdate({ name, value, optionNumber }))
+      dispatch(optionUpdate({ name, value, optionIndex }))
     }
   }
 
