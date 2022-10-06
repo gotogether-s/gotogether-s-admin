@@ -40,10 +40,8 @@ const addProductSlice = createSlice({
       const { name, value, optionNumber } = action.payload
       const option = state.optionDtoList[optionNumber]
       if (option) {
-        console.log(true)
         option[`${name}`] = value
       } else {
-        console.log(false)
         const newOption = {
           name: '',
           value: '',
