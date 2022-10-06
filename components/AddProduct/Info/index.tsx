@@ -1,3 +1,4 @@
+import CheckBox from '@components/CheckBox'
 import Input from '@components/Input'
 import style from './Info.module.scss'
 
@@ -13,6 +14,12 @@ const productNameProps = {
   placeholder: '제목을 입력하세요',
 }
 
+const basicPriceInquiryProps = {
+  label: null,
+  name: 'basicPrice',
+  valueLists: ['가격문의'],
+}
+
 const basicPriceProps = {
   label: '가격',
   name: 'basicPrice',
@@ -25,7 +32,12 @@ const Info = () => {
     <>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
-      <Input {...basicPriceProps} />
+      <div className={style['price-wrapper']}>
+        <Input {...basicPriceProps} />
+        <div className={style['price-inquiry']}>
+          <CheckBox {...basicPriceInquiryProps} />
+        </div>
+      </div>
     </>
   )
 }
