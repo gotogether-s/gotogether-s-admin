@@ -2,3 +2,17 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.MuiFormGroup-root {
+  gap: 1rem;
+}
+
+.MuiFormControlLabel-root {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.MuiButtonBase-root.MuiRadio-root {
+  padding: 0;
+  margin-right: 0.5rem;
+}
