@@ -1,6 +1,8 @@
 .flex-wrapper {
+  flex-grow: 1;
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
+  align-items: center;
   div:first-child {
     flex-grow: 5;
   }

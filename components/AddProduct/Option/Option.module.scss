@@ -13,6 +13,18 @@
   }
 }
 
+.option-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  .delete {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .add-option {
   display: flex;
   align-items: flex-end;

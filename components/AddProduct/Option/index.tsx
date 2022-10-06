@@ -1,4 +1,5 @@
 import AddIcon from '@mui/icons-material/Add'
+import CloseIcon from '@mui/icons-material/Close'
 import { useState } from 'react'
 import Input from '@components/Input'
 import OptionList from './OptionList'
@@ -19,16 +20,27 @@ const Option = ({ optionIndex }) => {
     setOptionLists([...optionLists, <OptionList />])
   }
 
+  const deleteOptionList = optionListIndex => {
+    setOptionLists(
+      optionLists.filter((optionList, index) => index !== optionListIndex)
+    )
+  }
+
   return (
     <div style={{ marginTop: optionIndex && '3rem' }}>
       <h3 className={style['section-subtitle']}>여행옵션 {optionIndex + 1}</h3>
       <Input {...optionDtoListNameProps} />
-      {optionLists.map((optionList, index) => {
+      {optionLists.map((optionList, optionListIndex) => {
         return (
-          <OptionList
-            key={index}
-            optionIndex={optionIndex}
-          />
+          <div
+            key={optionListIndex}
+            className={style['option-list']}>
+            <OptionList optionIndex={optionIndex} />
+            <CloseIcon
+              className={style['delete']}
+              onClick={() => deleteOptionList(optionListIndex)}
+            />
+          </div>
         )
       })}
       <div
