@@ -1,5 +1,7 @@
 import AddIcon from '@mui/icons-material/Add'
+import { useState } from 'react'
 import Input from '@components/Input'
+import OptionList from './OptionList'
 import style from './Option.module.scss'
 
 const Option = ({ optionIndex }) => {
@@ -11,38 +13,27 @@ const Option = ({ optionIndex }) => {
     optionNumber: optionIndex,
   }
 
-  const optionDtoListValueProps = {
-    label: '항목',
-    name: 'optionDtoList',
-    subName: 'value',
-    placeholder: '항목을 입력하세요',
-    optionNumber: optionIndex,
-  }
+  const [optionLists, setOptionLists] = useState([<OptionList />])
 
-  const optionDtoListAdditionalProps = {
-    label: '추가금액 (선택사항)',
-    name: 'optionDtoList',
-    subName: 'additional',
-    placeholder: '숫자만 입력하세요',
-    price: true,
-    optionNumber: optionIndex,
-  }
-
-  const AddOption = () => {
-    // Add new option here...
+  const AddOptionList = () => {
+    setOptionLists([...optionLists, <OptionList />])
   }
 
   return (
     <div style={{ marginTop: optionIndex && '3rem' }}>
       <h3 className={style['section-subtitle']}>여행옵션 {optionIndex + 1}</h3>
       <Input {...optionDtoListNameProps} />
-      <div className={style['flex-wrapper']}>
-        <Input {...optionDtoListValueProps} />
-        <Input {...optionDtoListAdditionalProps} />
-      </div>
+      {optionLists.map((optionList, index) => {
+        return (
+          <OptionList
+            key={index}
+            optionIndex={optionIndex}
+          />
+        )
+      })}
       <div
         className={style['add-option']}
-        onClick={AddOption}>
+        onClick={AddOptionList}>
         <AddIcon />
         <span>항목 추가하기</span>
       </div>
