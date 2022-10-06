@@ -9,18 +9,16 @@ import style from './Option.module.scss'
 const Option = ({ optionIndex }) => {
   const optionDtoListNameProps = {
     label: '옵션 이름',
-    name: 'optionDtoList',
-    subName: 'name',
+    name: 'name',
     placeholder: '옵션 이름을 입력하세요',
     optionNumber: optionIndex,
   }
 
   const optionDtoListRequiredProps = {
     label: null,
-    name: 'optionDtoList',
-    subName: 'required',
+    name: 'required',
     optionNumber: optionIndex,
-    radioButtonLists: ['필수옵션', '선택옵션'],
+    valueLists: ['필수옵션', '선택옵션'],
   }
 
   const [optionLists, setOptionLists] = useState([<OptionList />])
