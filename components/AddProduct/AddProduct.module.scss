@@ -24,3 +24,17 @@
     padding-bottom: 0.1rem;
   }
 }
+
+.detail-title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  .section-title {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+  span {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}

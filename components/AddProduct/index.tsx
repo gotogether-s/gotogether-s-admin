@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Info from './Info'
 import Option from './Option'
 import Summary from './Summary'
+import Detail from './Detail'
 import style from './AddProduct.module.scss'
 
 const AddProduct = () => {
@@ -43,6 +44,13 @@ const AddProduct = () => {
         <section className={style['section']}>
           <h2 className={style['section-title']}>여행 상세정보 요약본</h2>
           <Summary />
+        </section>
+        <section className={style['section']}>
+          <div className={style['detail-title-wrapper']}>
+            <h2 className={style['section-title']}>여행 상세정보</h2>
+            <span>(이미지, 포함 및 불포함 사항, 상세일정)</span>
+          </div>
+          <Detail />
         </section>
       </Container>
     </Box>
