@@ -52,9 +52,20 @@ const addProductSlice = createSlice({
         state.optionDtoList[optionIndex][`${name}`] = value
       }
     },
+    ageUpdate: (state, action) => {
+      const { name, value } = action.payload
+      const initialStateKey = Object.keys(state).find(
+        stateKey => stateKey === name
+      )
+      if (state[initialStateKey] === '') {
+        state[initialStateKey] = value
+      } else {
+        state[initialStateKey] = state[initialStateKey].concat(',', value)
+      }
+    },
   },
 })
 
 export default addProductSlice
 
-export const { update, optionUpdate } = addProductSlice.actions
+export const { update, optionUpdate, ageUpdate } = addProductSlice.actions
