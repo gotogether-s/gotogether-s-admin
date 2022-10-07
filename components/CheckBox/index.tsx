@@ -13,9 +13,11 @@ const CheckBox = props => {
 
   const updateAddProductStateFromCheckBox = e => {
     setCheckedStatus(!checkedStatus)
+    const { name, value } = e.target
     if (!checkedStatus) {
-      const { name, value } = e.target
       dispatch(update({ name, value }))
+    } else {
+      dispatch(update({ name, value: '' }))
     }
   }
 
