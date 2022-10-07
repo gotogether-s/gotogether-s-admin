@@ -14,17 +14,17 @@ const productNameProps = {
   placeholder: '제목을 입력하세요',
 }
 
-const basicPriceInquiryProps = {
-  label: null,
-  name: 'basicPrice',
-  valueLists: ['가격문의'],
-}
-
 const basicPriceProps = {
   label: '가격',
   name: 'basicPrice',
   placeholder: '숫자만 입력하세요',
   price: true,
+}
+
+const basicPriceInquiryProps = {
+  label: null,
+  name: 'basicPrice',
+  valueLists: ['가격문의'],
 }
 
 const Info = () => {
