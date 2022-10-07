@@ -1,0 +1,29 @@
+.section-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.option-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  .delete {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.add-option {
+  display: flex;
+  align-items: flex-end;
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    padding-bottom: 0.1rem;
+  }
+}
