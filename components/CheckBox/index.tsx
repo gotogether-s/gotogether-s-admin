@@ -1,8 +1,23 @@
 import { FormGroup, FormControlLabel, Checkbox } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { update } from '@store/addProductSlice'
+import { useState } from 'react'
 import style from './CheckBox.module.scss'
 
 const CheckBox = props => {
-  const { label, valueLists } = props
+  const { label, name, valueLists } = props
+
+  const dispatch = useDispatch()
+
+  const [checkedStatus, setCheckedStatus] = useState(false)
+
+  const updateAddProductStateFromCheckBox = e => {
+    setCheckedStatus(!checkedStatus)
+    if (!checkedStatus) {
+      const { name, value } = e.target
+      dispatch(update({ name, value }))
+    }
+  }
 
   return (
     <>
@@ -13,7 +28,13 @@ const CheckBox = props => {
             key={index}
             value={valueList}
             label={valueList}
-            control={<Checkbox />}
+            control={
+              <Checkbox
+                name={name}
+                onChange={updateAddProductStateFromCheckBox}
+                checked={checkedStatus}
+              />
+            }
           />
         ))}
       </FormGroup>
