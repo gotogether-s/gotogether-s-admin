@@ -1,40 +1,51 @@
 import { FormGroup, FormControlLabel, Checkbox } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { update } from '@store/addProductSlice'
 import { useState } from 'react'
 import style from './CheckBox.module.scss'
 
 const CheckBox = props => {
   const { label, name, valueLists } = props
 
-  const dispatch = useDispatch()
+  const [valueListsCheckedStatus, setValueListsCheckedStatus] = useState(() =>
+    valueLists.map(l => false)
+  )
 
-  const [checkedStatus, setCheckedStatus] = useState(false)
+  const updateAddProductStateFromCheckBox = (e, valueList, valueListindex) => {
+    const { name, checked } = e.target
+    const targetChecked = checked
 
-  const updateAddProductStateFromCheckBox = e => {
-    setCheckedStatus(!checkedStatus)
-    const { name, value } = e.target
-    if (!checkedStatus) {
-      dispatch(update({ name, value }))
-    } else {
-      dispatch(update({ name, value: '' }))
-    }
+    setValueListsCheckedStatus(valueListsCheckedStatus => {
+      return valueListsCheckedStatus.map(
+        (valueListCheckedStatus, isCheckedIndex) => {
+          if (isCheckedIndex === valueListindex) {
+            return targetChecked
+          } else {
+            return valueListCheckedStatus
+          }
+        }
+      )
+    })
   }
 
   return (
     <>
       <div className={style['label']}>{label}</div>
       <FormGroup row>
-        {valueLists.map((valueList, index) => (
+        {valueLists.map((valueList, valueListindex) => (
           <FormControlLabel
-            key={index}
-            value={valueList}
+            key={valueListindex}
             label={valueList}
             control={
               <Checkbox
                 name={name}
-                onChange={updateAddProductStateFromCheckBox}
-                checked={checkedStatus}
+                value={valueList}
+                checked={valueListsCheckedStatus[valueListindex]}
+                onChange={e =>
+                  updateAddProductStateFromCheckBox(
+                    e,
+                    valueList,
+                    valueListindex
+                  )
+                }
               />
             }
           />
