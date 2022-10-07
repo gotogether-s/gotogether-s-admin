@@ -11,7 +11,12 @@ const Input = props => {
 
   const [value, setValue] = useState('')
 
-  const updateAddProductState = (e, price, optionDtoList, optionIndex) => {
+  const updateAddProductStateFromInput = (
+    e,
+    price,
+    optionDtoList,
+    optionIndex
+  ) => {
     const { name, value } = e.target
     setValue(value)
     if (price) {
@@ -47,7 +52,12 @@ const Input = props => {
         value={value}
         placeholder={placeholder}
         onChange={() =>
-          updateAddProductState(event, price, optionDtoList, optionIndex)
+          updateAddProductStateFromInput(
+            event,
+            price,
+            optionDtoList,
+            optionIndex
+          )
         }
         InputProps={{
           endAdornment: price && (
