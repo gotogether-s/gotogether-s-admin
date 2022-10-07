@@ -53,14 +53,21 @@ const addProductSlice = createSlice({
       }
     },
     ageUpdate: (state, action) => {
-      const { name, value } = action.payload
+      const { name, value, targetChecked } = action.payload
       const initialStateKey = Object.keys(state).find(
         stateKey => stateKey === name
       )
-      if (state[initialStateKey] === '') {
-        state[initialStateKey] = value
+      if (targetChecked) {
+        if (state[initialStateKey] === '') {
+          state[initialStateKey] = value
+        } else {
+          state[initialStateKey] = state[initialStateKey].concat(',', value)
+        }
       } else {
-        state[initialStateKey] = state[initialStateKey].concat(',', value)
+        const agesArray = state[initialStateKey].split(',')
+        const agesArrayIndex = agesArray.indexOf(value)
+        agesArray.splice(agesArrayIndex, 1)
+        state[initialStateKey] = agesArray.join()
       }
     },
   },
