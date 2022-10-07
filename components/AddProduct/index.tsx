@@ -3,6 +3,7 @@ import { Container, Box } from '@mui/material'
 import { useState } from 'react'
 import Info from './Info'
 import Option from './Option'
+import Summary from './Summary'
 import style from './AddProduct.module.scss'
 
 const AddProduct = () => {
@@ -38,6 +39,10 @@ const AddProduct = () => {
               />
             )
           })}
+        </section>
+        <section className={style['section']}>
+          <h2 className={style['section-title']}>여행 상세정보 요약본</h2>
+          <Summary />
         </section>
       </Container>
     </Box>
