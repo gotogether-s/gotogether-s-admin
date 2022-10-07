@@ -43,7 +43,7 @@ const Input = props => {
           )
         : dispatch(update({ name, value: unformattedPrice }))
     } else if (optionDtoList) {
-      // Update optionDtoList Data here...
+      dispatch(optionUpdate({ name, value, optionIndex }))
     } else {
       dispatch(update({ name, value }))
     }
