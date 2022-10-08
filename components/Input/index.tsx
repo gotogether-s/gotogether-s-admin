@@ -58,13 +58,8 @@ const Input = props => {
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={() =>
-          updateAddProductStateFromInput(
-            event,
-            price,
-            optionDtoList,
-            optionIndex
-          )
+        onChange={e =>
+          updateAddProductStateFromInput(e, price, optionDtoList, optionIndex)
         }
         InputProps={{
           endAdornment: price && (
