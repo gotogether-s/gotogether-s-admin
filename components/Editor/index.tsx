@@ -1,20 +1,7 @@
-import ReactQuill from 'react-quill'
-import { useState } from 'react'
-import 'react-quill/dist/quill.snow.css'
+import React from 'react'
 
-function Editor() {
-  const ReactQuill =
-    typeof window === 'object' ? require('react-quill') : () => false
-
-  const [value, setValue] = useState('')
-
-  return (
-    <ReactQuill
-      theme='snow'
-      value={value}
-      onChange={setValue}
-    />
-  )
+const Editor = () => {
+  return <div>Editor</div>
 }
 
 export default Editor
