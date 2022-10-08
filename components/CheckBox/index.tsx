@@ -18,12 +18,12 @@ const CheckBox = props => {
     setIsChecked(isChecked => {
       return isChecked.map((isCheckedList, isCheckedIndex) => {
         if (isCheckedIndex === valueIndex) {
-          if (name === 'ages') {
-            dispatch(ageUpdate({ name, value, targetChecked }))
-          } else {
+          if (name === 'basicPrice') {
             targetChecked
               ? dispatch(update({ name, value }))
               : dispatch(update({ name, value: '' }))
+          } else {
+            dispatch(ageUpdate({ name, value, targetChecked }))
           }
           return targetChecked
         } else {
