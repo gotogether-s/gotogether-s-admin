@@ -1,19 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  thumbnail: '',
-  productName: '',
-  basicPrice: '',
   ages: '',
-  genderGroup: '',
+  airport: '',
+  basicPrice: '',
   companion: '',
-  religion: '',
-  theme: '',
   continent: '',
   country: '',
-  region: '',
-  points: '',
-  airport: '',
+  genderGroup: '',
   info: '',
   optionDtoList: [
     {
@@ -23,6 +17,12 @@ const initialState = {
       required: '',
     },
   ],
+  points: '',
+  productName: '',
+  region: '',
+  religion: '',
+  theme: '',
+  thumbnail: '',
 }
 
 const addProductSlice = createSlice({
