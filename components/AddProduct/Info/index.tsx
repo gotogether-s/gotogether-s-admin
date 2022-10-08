@@ -24,7 +24,7 @@ const basicPriceProps = {
 const basicPriceInquiryProps = {
   label: null,
   name: 'basicPrice',
-  valueLists: ['가격문의'],
+  values: ['가격문의'],
 }
 
 const Info = () => {

@@ -18,7 +18,7 @@ const Option = ({ optionIndex }) => {
   const optionDtoListRequiredProps = {
     label: null,
     name: 'required',
-    valueLists: ['필수옵션', '선택옵션'],
+    values: ['필수옵션', '선택옵션'],
     optionDtoList: true,
     optionIndex: optionIndex,
   }

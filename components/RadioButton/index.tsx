@@ -5,7 +5,7 @@ import { useState } from 'react'
 import style from './RadioButton.module.scss'
 
 const RadioButton = props => {
-  const { label, name, optionIndex, valueLists } = props
+  const { label, name, optionIndex, values } = props
 
   const dispatch = useDispatch()
 
@@ -31,11 +31,11 @@ const RadioButton = props => {
         name={name}
         value={value}
         onChange={updateAddProductStateFromRadio}>
-        {valueLists.map((valueList, index) => (
+        {values.map((value, index) => (
           <FormControlLabel
             key={index}
-            value={valueList}
-            label={valueList}
+            value={value}
+            label={value}
             control={<Radio />}
           />
         ))}

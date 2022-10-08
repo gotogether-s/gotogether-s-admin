@@ -5,35 +5,31 @@ import { useState } from 'react'
 import style from './CheckBox.module.scss'
 
 const CheckBox = props => {
-  const { label, name, valueLists } = props
+  const { label, name, values } = props
 
   const dispatch = useDispatch()
 
-  const [valueListsCheckedStatus, setValueListsCheckedStatus] = useState(() =>
-    valueLists.map(l => false)
-  )
+  const [isChecked, setIsChecked] = useState(() => values.map(l => false))
 
-  const updateAddProductStateFromCheckBox = (e, value, valueListindex) => {
+  const updateAddProductStateFromCheckBox = (e, value, valueIndex) => {
     const { name, checked } = e.target
     const targetChecked = checked
 
-    setValueListsCheckedStatus(valueListsCheckedStatus => {
-      return valueListsCheckedStatus.map(
-        (valueListCheckedStatus, isCheckedIndex) => {
-          if (isCheckedIndex === valueListindex) {
-            if (name === 'ages') {
-              dispatch(ageUpdate({ name, value, targetChecked }))
-            } else {
-              targetChecked
-                ? dispatch(update({ name, value }))
-                : dispatch(update({ name, value: '' }))
-            }
-            return targetChecked
+    setIsChecked(isChecked => {
+      return isChecked.map((isCheckedList, isCheckedIndex) => {
+        if (isCheckedIndex === valueIndex) {
+          if (name === 'ages') {
+            dispatch(ageUpdate({ name, value, targetChecked }))
           } else {
-            return valueListCheckedStatus
+            targetChecked
+              ? dispatch(update({ name, value }))
+              : dispatch(update({ name, value: '' }))
           }
+          return targetChecked
+        } else {
+          return isCheckedList
         }
-      )
+      })
     })
   }
 
@@ -41,21 +37,17 @@ const CheckBox = props => {
     <>
       <div className={style['label']}>{label}</div>
       <FormGroup row>
-        {valueLists.map((valueList, valueListindex) => (
+        {values.map((value, valueIndex) => (
           <FormControlLabel
-            key={valueListindex}
-            label={valueList}
+            key={valueIndex}
+            label={value}
             control={
               <Checkbox
                 name={name}
-                value={valueList}
-                checked={valueListsCheckedStatus[valueListindex]}
+                value={value}
+                checked={isChecked[valueIndex]}
                 onChange={e =>
-                  updateAddProductStateFromCheckBox(
-                    e,
-                    valueList,
-                    valueListindex
-                  )
+                  updateAddProductStateFromCheckBox(e, value, valueIndex)
                 }
               />
             }
