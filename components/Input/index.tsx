@@ -50,21 +50,16 @@ const Input = props => {
   }
 
   return (
-    <div className={style['input-wrapper']}>
-      <div className={style['label']}>{label}</div>
+    <div>
+      <div className='label'>{label}</div>
       <TextField
         sx={{ width: '100%' }}
         size='small'
         name={name}
         value={value}
         placeholder={placeholder}
-        onChange={() =>
-          updateAddProductStateFromInput(
-            event,
-            price,
-            optionDtoList,
-            optionIndex
-          )
+        onChange={e =>
+          updateAddProductStateFromInput(e, price, optionDtoList, optionIndex)
         }
         InputProps={{
           endAdornment: price && (

@@ -24,12 +24,12 @@ const basicPriceProps = {
 const basicPriceInquiryProps = {
   label: null,
   name: 'basicPrice',
-  valueLists: ['가격문의'],
+  values: ['가격문의'],
 }
 
 const Info = () => {
   return (
-    <>
+    <div className='addproduct-input-list'>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
       <div className={style['price-wrapper']}>
@@ -38,7 +38,7 @@ const Info = () => {
           <CheckBox {...basicPriceInquiryProps} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
