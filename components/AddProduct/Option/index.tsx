@@ -36,7 +36,9 @@ const Option = ({ optionIndex }) => {
   }
 
   return (
-    <div style={{ marginTop: optionIndex && '3rem' }}>
+    <div
+      className='addproduct-input-list'
+      style={{ marginTop: optionIndex && '3rem' }}>
       <div className={style['section-subtitle-wrapper']}>
         <h3>여행옵션 {optionIndex + 1}</h3>
         <RadioButton {...optionDtoListRequiredProps} />

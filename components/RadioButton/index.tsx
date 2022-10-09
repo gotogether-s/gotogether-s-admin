@@ -25,8 +25,8 @@ const RadioButton = props => {
   }
 
   return (
-    <div className={style['input-wrapper']}>
-      <div className={style['label']}>{label}</div>
+    <div>
+      <div className='label'>{label}</div>
       <RadioGroup
         row
         name={name}

@@ -29,7 +29,7 @@ const basicPriceInquiryProps = {
 
 const Info = () => {
   return (
-    <>
+    <div className='addproduct-input-list'>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
       <div className={style['price-wrapper']}>
@@ -38,7 +38,7 @@ const Info = () => {
           <CheckBox {...basicPriceInquiryProps} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

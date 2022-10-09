@@ -72,14 +72,14 @@ const themeProps = {
 
 const Category = () => {
   return (
-    <>
+    <div className='addproduct-input-list category-list'>
       <DropDown {...continentProps} />
       <CheckBox {...agesProps} />
       <RadioButton {...genderGroupProps} />
       <RadioButton {...companionProps} />
       <RadioButton {...religionProps} />
       <RadioButton {...themeProps} />
-    </>
+    </div>
   )
 }
 

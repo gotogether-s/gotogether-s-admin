@@ -18,8 +18,8 @@ const DropDown = props => {
   }
 
   return (
-    <div className={style['input-wrapper']}>
-      <div className={style['label']}>{label}</div>
+    <div>
+      <div className='label'>{label}</div>
       <Select
         sx={{ width: '100%' }}
         size='small'

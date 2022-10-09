@@ -21,11 +21,11 @@ const airportProps = {
 
 const Summary = () => {
   return (
-    <>
+    <div className='addproduct-input-list'>
       <Input {...regionProps} />
       <Input {...pointsProps} />
       <Input {...airportProps} />
-    </>
+    </div>
   )
 }
 

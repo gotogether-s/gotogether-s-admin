@@ -34,8 +34,8 @@ const CheckBox = props => {
   }
 
   return (
-    <div className={style['input-wrapper']}>
-      <div className={style['label']}>{label}</div>
+    <div>
+      <div className='label'>{label}</div>
       <FormGroup row>
         {values.map((value, valueIndex) => (
           <FormControlLabel
