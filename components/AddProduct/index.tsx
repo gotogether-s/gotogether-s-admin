@@ -1,5 +1,6 @@
 import AddIcon from '@mui/icons-material/Add'
-import { Container, Box } from '@mui/material'
+import { Container, Box, Button } from '@mui/material'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import Info from './Info'
 import Option from './Option'
@@ -13,6 +14,26 @@ const AddProduct = () => {
 
   const AddOption = () => {
     setOptions([...options, <Option />])
+  }
+
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const getAddProduct = useSelector(state => {
+    return state.addProduct
+  })
+
+  const requestAddProduct = () => {
+    validateAddProduct()
+  }
+
+  const validateAddProduct = () => {
+    const AddProductLists = Object.values(getAddProduct)
+    AddProductLists.map(AddProductList => {
+      AddProductList === '' &&
+        setErrorMessage(
+          '여행옵션을 제외한 모든 정보를 필수적으로 입력해주세요!'
+        )
+    })
   }
 
   return (
@@ -57,6 +78,14 @@ const AddProduct = () => {
           <h2 className={style['section-title']}>여행 상품 카테고리</h2>
           <Category />
         </section>
+        <div className={style['button-wrapper']}>
+          <Button
+            variant='contained'
+            onClick={requestAddProduct}>
+            새 상품 등록하기
+          </Button>
+        </div>
+        <p className={style['error-message']}>{errorMessage}</p>
       </Container>
     </Box>
   )
