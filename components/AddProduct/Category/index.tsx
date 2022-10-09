@@ -1,5 +1,6 @@
 import CheckBox from '@components/CheckBox'
 import DropDown from '@components/DropDown'
+import RadioButton from '@components/RadioButton'
 import style from './Category.module.scss'
 
 const agesProps = {
@@ -29,11 +30,55 @@ const continentProps = {
   placeholder: '대륙을 선택해주세요',
 }
 
+const genderGroupProps = {
+  label: '그룹 유형',
+  name: 'genderGroup',
+  values: ['여자끼리', '남자끼리'],
+}
+
+const companionProps = {
+  label: '동행자의 유형',
+  name: 'companion',
+  values: [
+    '나홀로 참가',
+    '친구나 동료',
+    '연인이나 부부',
+    '자녀를 동반하는 가족',
+    '해당사항 없음',
+    '상관 없음',
+  ],
+}
+
+const religionProps = {
+  label: '종교적 성향의 그룹',
+  name: 'religion',
+  values: ['하나님과 함께하는 여행', '부처님의 발자취를 찾아', '상관 없음'],
+}
+
+const themeProps = {
+  label: '여행의 테마',
+  name: 'theme',
+  values: [
+    '문화탐방',
+    '골프여행',
+    '리조트 휴양 및 힐링',
+    '오지탐험',
+    '트레킹여행',
+    '봉사활동',
+    '성지순례',
+    '상관 없음',
+  ],
+}
+
 const Category = () => {
   return (
     <>
       <DropDown {...continentProps} />
       <CheckBox {...agesProps} />
+      <RadioButton {...genderGroupProps} />
+      <RadioButton {...companionProps} />
+      <RadioButton {...religionProps} />
+      <RadioButton {...themeProps} />
     </>
   )
 }
