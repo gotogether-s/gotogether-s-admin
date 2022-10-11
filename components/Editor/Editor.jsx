@@ -144,17 +144,22 @@ const Editor = () => {
     return <Leaf {...props} />
   }, [])
 
+  const updateAddProductStateFromEditor = newValue => {
+    setValue(newValue)
+    console.log(newValue)
+  }
+
   return (
     <Slate
       editor={editor}
       value={value}
-      onChange={newValue => setValue(newValue)}>
+      onChange={newValue => updateAddProductStateFromEditor(newValue)}>
       <Toolbar />
       <div
         className='editor-wrapper'
         style={{ border: '1px solid #f3f3f3', padding: '1.6rem' }}>
         <Editable
-          placeholder='Write something'
+          placeholder='여행 상세정보를 입력해주세요'
           renderElement={renderElement}
           renderLeaf={renderLeaf}
         />
