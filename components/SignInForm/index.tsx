@@ -1,5 +1,7 @@
 import { TextField, Button } from '@mui/material'
 import { useState } from 'react'
+import Image from 'next/image'
+import logo from '@assets/image/logo.png'
 import Link from 'next/link'
 import style from './SignInForm.module.scss'
 
@@ -45,7 +47,15 @@ const SignInForm = () => {
 
   return (
     <div className={style['signinform-container']}>
-      <h2>관리자 계정으로 로그인해주세요</h2>
+      <Image
+        src={logo}
+        alt='logo'
+        width='100%'
+        height='12%'
+        layout='responsive'
+        objectFit='contain'
+      />
+      <p className={style['intro']}>관리자 계정으로 로그인해주세요</p>
       <form onSubmit={requestSignIn}>
         <div className={style['input-wrapper']}>
           <div className={style['label']}>이메일</div>
