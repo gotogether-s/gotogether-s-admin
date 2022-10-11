@@ -54,7 +54,7 @@ const Input = props => {
     const basicPrice = useSelector(state => {
       return state.addProduct.basicPrice
     })
-    return basicPrice === '가격문의' ? true : false
+    return basicPrice === 0 ? true : false
   }
 
   return (
