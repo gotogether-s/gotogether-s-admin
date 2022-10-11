@@ -11,6 +11,8 @@ import withEmbeds from './plugins/withEmbeds.js'
 import Link from './Elements/Link/Link'
 import Image from './Elements/Image/Image'
 import Video from './Elements/Video/Video'
+import { useDispatch } from 'react-redux'
+import { update } from '@store/addProductSlice'
 
 const Element = props => {
   const { attributes, children, element } = props
@@ -144,9 +146,11 @@ const Editor = () => {
     return <Leaf {...props} />
   }, [])
 
+  const dispatch = useDispatch()
+
   const updateAddProductStateFromEditor = newValue => {
     setValue(newValue)
-    console.log(newValue)
+    dispatch(update({ name: 'info', value: JSON.stringify(newValue) }))
   }
 
   return (
