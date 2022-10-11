@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { TextField, Button } from '@mui/material'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Image from 'next/image'
 import logo from '@assets/image/logo.png'
@@ -14,6 +15,8 @@ const SignInForm = () => {
   })
   const [signInValuesErrors, setSignInValuesErrors] = useState({})
   const [displaySignInError, setDisplaySignInError] = useState(false)
+
+  const router = useRouter()
 
   const handleSignInValuesChange = e => {
     const { name, value } = e.target
@@ -58,6 +61,7 @@ const SignInForm = () => {
       )
       const { accessToken } = res.data.data
       window.localStorage.setItem('accessToken', accessToken)
+      router.push('/addproduct')
     } catch (e) {
       console.log(e)
       setSignInValuesErrors(validateSignIn(signInValues))
