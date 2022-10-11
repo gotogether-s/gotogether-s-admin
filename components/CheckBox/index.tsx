@@ -20,8 +20,8 @@ const CheckBox = props => {
         if (isCheckedIndex === valueIndex) {
           if (name === 'basicPrice') {
             targetChecked
-              ? dispatch(update({ name, value }))
-              : dispatch(update({ name, value: '' }))
+              ? dispatch(update({ name, value: 0 }))
+              : dispatch(update({ name, value: null }))
           } else {
             dispatch(ageUpdate({ name, value, targetChecked }))
           }
