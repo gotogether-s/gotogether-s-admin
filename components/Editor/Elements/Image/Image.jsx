@@ -6,7 +6,7 @@ const Image = ({ attributes, element, children }) => {
   const { url, width, height } = element
   const selected = useSelected()
   const focused = useFocused()
-  console.log(width, height)
+  // console.log(width, height)
   return (
     <div
       {...attributes}
