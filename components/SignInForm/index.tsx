@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { TextField, Button } from '@mui/material'
 import { useState } from 'react'
 import Image from 'next/image'
@@ -40,9 +41,28 @@ const SignInForm = () => {
     return errors
   }
 
-  const requestSignIn = e => {
+  const requestSignIn = async e => {
     e.preventDefault()
-    setSignInValuesErrors(validateSignIn(signInValues))
+    const signInValidation = validateSignIn(signInValues)
+
+    if (signInValidation.email || signInValidation.password) {
+      setSignInValuesErrors(validateSignIn(signInValues))
+      setDisplaySignInError(false)
+      return
+    }
+
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVICE_API_URL}/login`,
+        signInValues
+      )
+      const { accessToken } = res.data.data
+      window.localStorage.setItem('accessToken', accessToken)
+    } catch (e) {
+      console.log(e)
+      setSignInValuesErrors(validateSignIn(signInValues))
+      setDisplaySignInError(true)
+    }
   }
 
   return (
