@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   ages: '',
   airport: '',
-  basicPrice: '',
+  basicPrice: null,
   companion: '',
   continent: '',
   country: '',
@@ -13,7 +13,7 @@ const initialState = {
     {
       name: '',
       value: '',
-      additional: 0,
+      additional: null,
       required: '',
     },
   ],

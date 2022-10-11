@@ -11,22 +11,10 @@ const Input = props => {
 
   const [value, setValue] = useState('')
 
-  const updateAddProductStateFromInput = (
-    e,
-    price,
-    optionDtoList,
-    optionIndex
-  ) => {
+  const updateAddProductStateFromInput = e => {
     const { name, value } = e.target
     setValue(value)
     if (price) {
-      if (isNaN(value)) {
-        setValue('')
-        optionDtoList
-          ? dispatch(optionUpdate({ name, value: '', optionIndex }))
-          : dispatch(update({ name, value: '' }))
-        return
-      }
       const unformattedPrice = value.replaceAll(',', '')
       setValue(
         Number(unformattedPrice)
@@ -54,7 +42,7 @@ const Input = props => {
     const basicPrice = useSelector(state => {
       return state.addProduct.basicPrice
     })
-    return basicPrice === '가격문의' ? true : false
+    return basicPrice === 0 ? true : false
   }
 
   return (
@@ -67,9 +55,7 @@ const Input = props => {
         value={value}
         placeholder={placeholder}
         disabled={getPriceInquiryStatus()}
-        onChange={e =>
-          updateAddProductStateFromInput(e, price, optionDtoList, optionIndex)
-        }
+        onChange={updateAddProductStateFromInput}
         InputProps={{
           endAdornment: price && (
             <InputAdornment position='end'>원</InputAdornment>
