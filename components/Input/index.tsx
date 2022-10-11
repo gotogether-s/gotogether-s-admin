@@ -15,13 +15,6 @@ const Input = props => {
     const { name, value } = e.target
     setValue(value)
     if (price) {
-      if (isNaN(value)) {
-        setValue('')
-        optionDtoList
-          ? dispatch(optionUpdate({ name, value: '', optionIndex }))
-          : dispatch(update({ name, value: '' }))
-        return
-      }
       const unformattedPrice = value.replaceAll(',', '')
       setValue(
         Number(unformattedPrice)
