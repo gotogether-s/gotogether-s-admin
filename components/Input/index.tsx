@@ -1,5 +1,5 @@
 import { TextField, InputAdornment } from '@mui/material'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { update, optionUpdate } from '@store/addProductSlice'
 import { useState } from 'react'
 import style from './Input.module.scss'
@@ -49,6 +49,14 @@ const Input = props => {
     }
   }
 
+  const getPriceInquiryStatus = () => {
+    if (name !== 'basicPrice') return false
+    const basicPrice = useSelector(state => {
+      return state.addProduct.basicPrice
+    })
+    return basicPrice === '가격문의' ? true : false
+  }
+
   return (
     <div>
       <div className='label'>{label}</div>
@@ -58,6 +66,7 @@ const Input = props => {
         name={name}
         value={value}
         placeholder={placeholder}
+        disabled={getPriceInquiryStatus()}
         onChange={e =>
           updateAddProductStateFromInput(e, price, optionDtoList, optionIndex)
         }

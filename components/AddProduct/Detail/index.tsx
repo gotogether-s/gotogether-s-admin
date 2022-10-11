@@ -1,4 +1,4 @@
-import Editor from '@components/Editor'
+import Editor from '@components/Editor/Editor'
 import style from './Detail.module.scss'
 
 const Detail = () => {
