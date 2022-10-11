@@ -6,21 +6,21 @@
     text-align: center;
     margin: 3rem 0 2rem 0;
   }
+  .error-message {
+    color: tomato;
+    height: 1.6rem;
+  }
   .input-wrapper {
     margin-bottom: 2rem;
     .label {
       padding-bottom: 1rem;
     }
-    .error-message {
-      color: tomato;
-      height: 1.6rem;
-    }
   }
   .button-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
-  }
-  .signup-link-wrapper {
-    text-align: center;
+    .error-message {
+      padding: 1rem;
+    }
   }
 }

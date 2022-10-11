@@ -2,7 +2,6 @@ import { TextField, Button } from '@mui/material'
 import { useState } from 'react'
 import Image from 'next/image'
 import logo from '@assets/image/logo.png'
-import Link from 'next/link'
 import style from './SignInForm.module.scss'
 
 const regex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
@@ -13,6 +12,7 @@ const SignInForm = () => {
     password: '',
   })
   const [signInValuesErrors, setSignInValuesErrors] = useState({})
+  const [displaySignInError, setDisplaySignInError] = useState(false)
 
   const handleSignInValuesChange = e => {
     const { name, value } = e.target
@@ -102,6 +102,11 @@ const SignInForm = () => {
             sx={{ width: '100%' }}>
             로그인
           </Button>
+          <p
+            className={style['error-message']}
+            style={{ visibility: displaySignInError ? 'visible' : 'hidden' }}>
+            계정이 존재하지 않거나 올바른 비밀번호가 아닙니다
+          </p>
         </div>
       </form>
     </div>
