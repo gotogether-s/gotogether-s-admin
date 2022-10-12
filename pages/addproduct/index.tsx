@@ -17,11 +17,12 @@ const AddProduct = () => {
     setOptions([...options, <Option />])
   }
 
-  const [addProductMessage, setAddProductMessage] = useState('')
+  const [addProductResponseMessage, setAddProductResponseMessage] = useState('')
 
   const addProduct = useSelector(state => {
     return state.addProduct
   })
+  console.log(addProduct)
 
   const validateAddProduct = () => {
     const AddProductListsArray = Object.values(addProduct)
@@ -30,17 +31,37 @@ const AddProduct = () => {
     const nullValidation = AddProductListsArray.includes(null)
     const requiredInputIsEmpty = emptyStringValidation || nullValidation
 
-    requiredInputIsEmpty
-      ? setAddProductMessage(
-          '여행옵션을 제외한 모든 정보를 필수적으로 입력해주세요!'
-        )
-      : setAddProductMessage('상품등록을 완료했습니다!')
-
+    requiredInputIsEmpty &&
+      setAddProductResponseMessage(
+        '여행옵션을 제외한 모든 정보를 필수적으로 입력해주세요!'
+      )
     return requiredInputIsEmpty
   }
 
-  const requestAddProduct = () => {
+  const requestAddProduct = async () => {
     if (validateAddProduct()) return
+    try {
+      const accessToken = localStorage.getItem('accessToken')
+      console.log('accessToken:', accessToken)
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_ADMIN_API_URL}/products`,
+        addProduct,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
+      console.log('res: ', res)
+      if (res.data.statusCode === 200) {
+        setAddProductResponseMessage('상품등록을 완료했습니다!')
+      } else if (res.data.statusCode === 400) {
+        setAddProductResponseMessage('상품등록을 실패했습니다!')
+      }
+    } catch (e) {
+      console.log('e: ', e)
+      setAddProductResponseMessage('상품등록 요청에 실패했습니다!')
+    }
   }
 
   return (
@@ -93,11 +114,15 @@ const AddProduct = () => {
           </Button>
         </div>
         <p
-          className={style['error-message']}
+          className={
+            addProductResponseMessage !== '상품등록을 완료했습니다!'
+              ? style['error-message']
+              : style['success-message']
+          }
           style={{
-            visibility: addProductMessage !== '' ? 'visible' : 'hidden',
+            visibility: addProductResponseMessage !== '' ? 'visible' : 'hidden',
           }}>
-          {addProductMessage}
+          {addProductResponseMessage}
         </p>
       </Container>
     </Box>
