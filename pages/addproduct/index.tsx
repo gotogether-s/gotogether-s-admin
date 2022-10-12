@@ -2,6 +2,7 @@ import axios from 'axios'
 import AddIcon from '@mui/icons-material/Add'
 import { Container, Box, Button } from '@mui/material'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Info from '@components/AddProduct/Info'
 import Option from '@components/AddProduct/Option'
@@ -38,6 +39,8 @@ const AddProduct = () => {
     return requiredInputIsEmpty
   }
 
+  const router = useRouter()
+
   const requestAddProduct = async () => {
     if (validateAddProduct()) return
     try {
@@ -55,6 +58,7 @@ const AddProduct = () => {
       console.log('res: ', res)
       if (res.data.statusCode === 200) {
         setAddProductResponseMessage('상품등록을 완료했습니다!')
+        router.reload()
       } else if (res.data.statusCode === 400) {
         setAddProductResponseMessage('상품등록을 실패했습니다!')
       }
