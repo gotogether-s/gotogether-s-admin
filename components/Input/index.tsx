@@ -15,9 +15,9 @@ const Input = props => {
     const { name, value } = e.target
     setValue(value)
     if (price) {
-      const unformattedPrice = value.replaceAll(',', '')
+      const unformattedPrice = parseInt(value.replaceAll(',', ''))
       setValue(
-        Number(unformattedPrice)
+        unformattedPrice
           .toString()
           .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
       )
@@ -25,7 +25,7 @@ const Input = props => {
         ? dispatch(
             optionUpdate({
               name,
-              value: parseInt(unformattedPrice),
+              value: unformattedPrice,
               optionIndex,
             })
           )
