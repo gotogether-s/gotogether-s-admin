@@ -1,3 +1,4 @@
+import axios from 'axios'
 import AddIcon from '@mui/icons-material/Add'
 import { Container, Box, Button } from '@mui/material'
 import { useSelector } from 'react-redux'
@@ -18,23 +19,28 @@ const AddProduct = () => {
 
   const [addProductMessage, setAddProductMessage] = useState('')
 
-  const getAddProduct = useSelector(state => {
+  const addProduct = useSelector(state => {
     return state.addProduct
   })
 
   const validateAddProduct = () => {
-    const AddProductListsArray = Object.values(getAddProduct)
+    const AddProductListsArray = Object.values(addProduct)
+
     const emptyStringValidation = AddProductListsArray.includes('')
     const nullValidation = AddProductListsArray.includes(null)
-    emptyStringValidation || nullValidation
+    const requiredInputIsEmpty = emptyStringValidation || nullValidation
+
+    requiredInputIsEmpty
       ? setAddProductMessage(
           '여행옵션을 제외한 모든 정보를 필수적으로 입력해주세요!'
         )
       : setAddProductMessage('상품등록을 완료했습니다!')
+
+    return requiredInputIsEmpty
   }
 
   const requestAddProduct = () => {
-    validateAddProduct()
+    if (validateAddProduct()) return
   }
 
   return (
