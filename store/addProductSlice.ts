@@ -13,8 +13,8 @@ const initialState = {
     {
       name: '',
       value: '',
-      additional: null,
-      required: '',
+      additional: 0,
+      required: false,
     },
   ],
   points: '',

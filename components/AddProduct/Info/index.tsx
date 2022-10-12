@@ -14,6 +14,12 @@ const productNameProps = {
   placeholder: '제목을 입력하세요',
 }
 
+const countryProps = {
+  label: '국가/도시',
+  name: 'country',
+  placeholder: '국가 또는 도시를 입력하세요',
+}
+
 const basicPriceProps = {
   label: '가격',
   name: 'basicPrice',
@@ -32,6 +38,7 @@ const Info = () => {
     <div className='addproduct-input-list'>
       <Input {...thumbnailProps} />
       <Input {...productNameProps} />
+      <Input {...countryProps} />
       <div className={style['price-wrapper']}>
         <Input {...basicPriceProps} />
         <div className={style['price-inquiry']}>
