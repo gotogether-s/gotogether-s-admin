@@ -33,7 +33,7 @@ const continentProps = {
 const genderGroupProps = {
   label: '그룹 유형',
   name: 'genderGroup',
-  values: ['여자끼리', '남자끼리'],
+  values: ['여자끼리', '남자끼리', '상관 없음'],
 }
 
 const companionProps = {
