@@ -16,24 +16,25 @@ const AddProduct = () => {
     setOptions([...options, <Option />])
   }
 
-  const [errorMessage, setErrorMessage] = useState('')
+  const [addProductMessage, setAddProductMessage] = useState('')
 
   const getAddProduct = useSelector(state => {
     return state.addProduct
   })
 
-  const requestAddProduct = () => {
-    validateAddProduct()
-  }
-
   const validateAddProduct = () => {
-    const AddProductLists = Object.values(getAddProduct)
-    AddProductLists.map(AddProductList => {
-      AddProductList === '' &&
-        setErrorMessage(
+    const AddProductListsArray = Object.values(getAddProduct)
+    const emptyStringValidation = AddProductListsArray.includes('')
+    const nullValidation = AddProductListsArray.includes(null)
+    emptyStringValidation || nullValidation
+      ? setAddProductMessage(
           '여행옵션을 제외한 모든 정보를 필수적으로 입력해주세요!'
         )
-    })
+      : setAddProductMessage('상품등록을 완료했습니다!')
+  }
+
+  const requestAddProduct = () => {
+    validateAddProduct()
   }
 
   return (
@@ -85,7 +86,13 @@ const AddProduct = () => {
             새 상품 등록하기
           </Button>
         </div>
-        <p className={style['error-message']}>{errorMessage}</p>
+        <p
+          className={style['error-message']}
+          style={{
+            visibility: addProductMessage !== '' ? 'visible' : 'hidden',
+          }}>
+          {addProductMessage}
+        </p>
       </Container>
     </Box>
   )
