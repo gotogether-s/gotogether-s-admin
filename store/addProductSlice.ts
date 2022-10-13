@@ -46,7 +46,7 @@ const addProductSlice = createSlice({
           name: '',
           value: '',
           additional: 0,
-          required: '',
+          required: false,
         }
         state.optionDtoList.push(newOption)
         state.optionDtoList[optionIndex][`${name}`] = value
