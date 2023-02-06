@@ -3,6 +3,7 @@ import Detail from '@components/AddProduct/Detail'
 import Info from '@components/AddProduct/Info'
 import Option from '@components/AddProduct/Option'
 import Summary from '@components/AddProduct/Summary'
+import HeadInfo from '@components/HeadInfo'
 import AddIcon from '@mui/icons-material/Add'
 import { Box, Button, Container } from '@mui/material'
 import en from '@public/locales/en/addProduct.json'
@@ -73,86 +74,92 @@ const AddProduct = () => {
   }
 
   return (
-    <Box sx={{ padding: '2rem 5rem' }}>
-      <h1 className={style['page-title']}>{translate['상품추가']}</h1>
-      <Container maxWidth='md'>
-        <section className={style['section']}>
-          <h2 className={style['section-title']}>
-            {translate['여행정보 (상단)']}
-          </h2>
-          <Info />
-        </section>
-        <section
-          className={style['section']}
-          style={{ position: 'relative' }}>
-          <h2 className={style['section-title']}>{translate['여행옵션']}</h2>
-          <div
-            className={style['add-option']}
-            onClick={AddOption}>
-            <AddIcon />
-            <span>{translate['여행옵션 추가하기']}</span>
-          </div>
-          {options.map((option, optionIndex) => {
-            return (
-              <Option
-                key={optionIndex}
-                optionIndex={optionIndex}
-              />
-            )
-          })}
-        </section>
-        <section className={style['section']}>
-          <h2 className={style['section-title']}>
-            {translate['여행 상세정보 요약본']}
-          </h2>
-          <Summary />
-        </section>
-        <section className={style['section']}>
-          <div className={style['detail-title-wrapper']}>
+    <>
+      <HeadInfo title={translate['페이지 제목']} />
+      <Box sx={{ padding: '2rem 5rem' }}>
+        <h1 className={style['page-title']}>{translate['상품추가']}</h1>
+        <Container maxWidth='md'>
+          <section className={style['section']}>
             <h2 className={style['section-title']}>
-              {translate['여행 상세정보']}
+              {translate['여행정보 (상단)']}
             </h2>
-            <span>{translate['(이미지, 포함 및 불포함 사항, 상세일정)']}</span>
-          </div>
-          <Detail />
-        </section>
-        <section className={style['section']}>
-          <h2 className={style['section-title']}>
-            {translate['여행 상품 카테고리']}
-          </h2>
-          <Category />
-        </section>
-        <div className={style['button-wrapper']}>
-          <Button
-            variant='contained'
-            onClick={requestAddProduct}
-            sx={{
-              backgroundColor: '#4581F8',
-              boxShadow: 'none',
-              paddingTop: '1rem',
-              paddingBottom: '1rem',
-              fontWeight: '500',
-              '&:hover': {
+            <Info />
+          </section>
+          <section
+            className={style['section']}
+            style={{ position: 'relative' }}>
+            <h2 className={style['section-title']}>{translate['여행옵션']}</h2>
+            <div
+              className={style['add-option']}
+              onClick={AddOption}>
+              <AddIcon />
+              <span>{translate['여행옵션 추가하기']}</span>
+            </div>
+            {options.map((option, optionIndex) => {
+              return (
+                <Option
+                  key={optionIndex}
+                  optionIndex={optionIndex}
+                />
+              )
+            })}
+          </section>
+          <section className={style['section']}>
+            <h2 className={style['section-title']}>
+              {translate['여행 상세정보 요약본']}
+            </h2>
+            <Summary />
+          </section>
+          <section className={style['section']}>
+            <div className={style['detail-title-wrapper']}>
+              <h2 className={style['section-title']}>
+                {translate['여행 상세정보']}
+              </h2>
+              <span>
+                {translate['(이미지, 포함 및 불포함 사항, 상세일정)']}
+              </span>
+            </div>
+            <Detail />
+          </section>
+          <section className={style['section']}>
+            <h2 className={style['section-title']}>
+              {translate['여행 상품 카테고리']}
+            </h2>
+            <Category />
+          </section>
+          <div className={style['button-wrapper']}>
+            <Button
+              variant='contained'
+              onClick={requestAddProduct}
+              sx={{
                 backgroundColor: '#4581F8',
                 boxShadow: 'none',
-              },
+                paddingTop: '1rem',
+                paddingBottom: '1rem',
+                fontWeight: '500',
+                '&:hover': {
+                  backgroundColor: '#4581F8',
+                  boxShadow: 'none',
+                },
+              }}>
+              {translate['새 상품 등록하기']}
+            </Button>
+          </div>
+          <p
+            className={
+              addProductResponseMessage !== '상품등록을 완료했습니다!'
+                ? style['error-message']
+                : style['success-message']
+            }
+            style={{
+              visibility:
+                addProductResponseMessage !== '' ? 'visible' : 'hidden',
             }}>
-            {translate['새 상품 등록하기']}
-          </Button>
-        </div>
-        <p
-          className={
-            addProductResponseMessage !== '상품등록을 완료했습니다!'
-              ? style['error-message']
-              : style['success-message']
-          }
-          style={{
-            visibility: addProductResponseMessage !== '' ? 'visible' : 'hidden',
-          }}>
-          {addProductResponseMessage}
-        </p>
-      </Container>
-    </Box>
+            {addProductResponseMessage}
+          </p>
+        </Container>
+      </Box>
+    </>
   )
 }
 
