@@ -1,10 +1,16 @@
-import { Select, MenuItem } from '@mui/material'
-import { useDispatch } from 'react-redux'
+import { MenuItem, Select } from '@mui/material'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
 import { update } from '@store/addProductSlice'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
-import style from './DropDown.module.scss'
+import { useDispatch } from 'react-redux'
 
 const DropDown = props => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const { label, name, values, placeholder } = props
 
   const dispatch = useDispatch()
@@ -30,7 +36,7 @@ const DropDown = props => {
           <MenuItem
             key={index}
             value={value}>
-            {value}
+            {translate[value]}
           </MenuItem>
         ))}
       </Select>

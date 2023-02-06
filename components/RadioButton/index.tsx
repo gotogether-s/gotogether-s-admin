@@ -1,10 +1,16 @@
-import { RadioGroup, FormControlLabel, Radio } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { update, optionUpdate } from '@store/addProductSlice'
+import { FormControlLabel, Radio, RadioGroup } from '@mui/material'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
+import { optionUpdate, update } from '@store/addProductSlice'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
-import style from './RadioButton.module.scss'
+import { useDispatch } from 'react-redux'
 
 const RadioButton = props => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const { label, name, optionDtoList, optionIndex, values } = props
 
   const dispatch = useDispatch()
@@ -36,7 +42,7 @@ const RadioButton = props => {
           <FormControlLabel
             key={index}
             value={value}
-            label={value}
+            label={translate[value]}
             control={<Radio />}
           />
         ))}

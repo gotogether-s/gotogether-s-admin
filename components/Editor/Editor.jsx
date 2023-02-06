@@ -1,18 +1,21 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { createEditor } from 'slate'
 import { withHistory } from 'slate-history'
-import { Slate, Editable, withReact } from 'slate-react'
-import Toolbar from './Toolbar/Toolbar'
-import { sizeMap, fontFamilyMap } from './utils/SlateUtilityFunctions.js'
+import { Editable, Slate, withReact } from 'slate-react'
+import withEmbeds from './plugins/withEmbeds.js'
 import withLinks from './plugins/withLinks.js'
 import withTables from './plugins/withTable.js'
-import withEmbeds from './plugins/withEmbeds.js'
+import Toolbar from './Toolbar/Toolbar'
+import { fontFamilyMap, sizeMap } from './utils/SlateUtilityFunctions.js'
 // import '@styles/Editor.css'
-import Link from './Elements/Link/Link'
-import Image from './Elements/Image/Image'
-import Video from './Elements/Video/Video'
-import { useDispatch } from 'react-redux'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
 import { update } from '@store/addProductSlice'
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import Image from './Elements/Image/Image'
+import Link from './Elements/Link/Link'
+import Video from './Elements/Video/Video'
 
 const Element = props => {
   const { attributes, children, element } = props
@@ -127,6 +130,10 @@ const Leaf = ({ attributes, children, leaf }) => {
 }
 
 const Editor = () => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const editor = useMemo(
     () =>
       withHistory(withEmbeds(withTables(withLinks(withReact(createEditor()))))),
@@ -163,7 +170,7 @@ const Editor = () => {
         className='editor-wrapper'
         style={{ border: '1px solid #f3f3f3', padding: '1.6rem' }}>
         <Editable
-          placeholder='여행 상세정보를 입력해주세요'
+          placeholder={translate['여행 상세정보를 입력해주세요']}
           renderElement={renderElement}
           renderLeaf={renderLeaf}
         />

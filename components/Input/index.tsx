@@ -1,10 +1,16 @@
-import { TextField, InputAdornment } from '@mui/material'
-import { useSelector, useDispatch } from 'react-redux'
-import { update, optionUpdate } from '@store/addProductSlice'
+import { InputAdornment, TextField } from '@mui/material'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
+import { optionUpdate, update } from '@store/addProductSlice'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
-import style from './Input.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Input = props => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const { label, name, placeholder, price, optionDtoList, optionIndex } = props
 
   const dispatch = useDispatch()
@@ -58,7 +64,7 @@ const Input = props => {
         onChange={updateAddProductStateFromInput}
         InputProps={{
           endAdornment: price && (
-            <InputAdornment position='end'>원</InputAdornment>
+            <InputAdornment position='end'>{translate['원']}</InputAdornment>
           ),
         }}
       />
