@@ -125,7 +125,18 @@ const AddProduct = () => {
         <div className={style['button-wrapper']}>
           <Button
             variant='contained'
-            onClick={requestAddProduct}>
+            onClick={requestAddProduct}
+            sx={{
+              backgroundColor: '#4581F8',
+              boxShadow: 'none',
+              paddingTop: '1rem',
+              paddingBottom: '1rem',
+              fontWeight: '500',
+              '&:hover': {
+                backgroundColor: '#4581F8',
+                boxShadow: 'none',
+              },
+            }}>
             {translate['새 상품 등록하기']}
           </Button>
         </div>
