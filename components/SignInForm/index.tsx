@@ -1,9 +1,9 @@
+import logo from '@assets/image/logo.png'
+import { Button, TextField } from '@mui/material'
 import axios from 'axios'
-import { TextField, Button } from '@mui/material'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import Image from 'next/image'
-import logo from '@assets/image/logo.png'
 import style from './SignInForm.module.scss'
 
 const regex = /^([a-z\d.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
@@ -104,6 +104,7 @@ const SignInForm = () => {
           <div className={style['label']}>비밀번호</div>
           <TextField
             name='password'
+            type='password'
             size='small'
             placeholder='비밀번호를 입력해주세요'
             value={signInValues.password}
