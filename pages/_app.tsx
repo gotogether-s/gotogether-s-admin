@@ -10,6 +10,7 @@ import '@styles/globals.scss'
 import '@styles/muiOverride.scss'
 import '@styles/reset.css'
 import theme from '@styles/theme'
+import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import store from 'store'
@@ -24,4 +25,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp)

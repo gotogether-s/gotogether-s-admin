@@ -20,7 +20,8 @@
       "@pages/*": ["pages/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@public/*": ["public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

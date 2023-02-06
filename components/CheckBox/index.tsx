@@ -1,10 +1,16 @@
-import { FormGroup, FormControlLabel, Checkbox } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { update, ageUpdate } from '@store/addProductSlice'
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
+import { ageUpdate, update } from '@store/addProductSlice'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
-import style from './CheckBox.module.scss'
+import { useDispatch } from 'react-redux'
 
 const CheckBox = props => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const { label, name, values } = props
 
   const dispatch = useDispatch()
@@ -40,7 +46,7 @@ const CheckBox = props => {
         {values.map((value, valueIndex) => (
           <FormControlLabel
             key={valueIndex}
-            label={value}
+            label={translate[value]}
             control={
               <Checkbox
                 name={name}

@@ -1,17 +1,23 @@
-import axios from 'axios'
-import AddIcon from '@mui/icons-material/Add'
-import { Container, Box, Button } from '@mui/material'
-import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
+import Category from '@components/AddProduct/Category'
+import Detail from '@components/AddProduct/Detail'
 import Info from '@components/AddProduct/Info'
 import Option from '@components/AddProduct/Option'
 import Summary from '@components/AddProduct/Summary'
-import Detail from '@components/AddProduct/Detail'
-import Category from '@components/AddProduct/Category'
+import AddIcon from '@mui/icons-material/Add'
+import { Box, Button, Container } from '@mui/material'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import style from './AddProduct.module.scss'
 
 const AddProduct = () => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const [options, setOptions] = useState([<Option />])
 
   const AddOption = () => {
@@ -38,8 +44,6 @@ const AddProduct = () => {
       )
     return requiredInputIsEmpty
   }
-
-  const router = useRouter()
 
   const requestAddProduct = async () => {
     if (validateAddProduct()) return
@@ -70,21 +74,23 @@ const AddProduct = () => {
 
   return (
     <Box sx={{ padding: '2rem 5rem' }}>
-      <h1 className={style['page-title']}>상품추가</h1>
+      <h1 className={style['page-title']}>{translate['상품추가']}</h1>
       <Container maxWidth='md'>
         <section className={style['section']}>
-          <h2 className={style['section-title']}>여행정보 (상단)</h2>
+          <h2 className={style['section-title']}>
+            {translate['여행정보 (상단)']}
+          </h2>
           <Info />
         </section>
         <section
           className={style['section']}
           style={{ position: 'relative' }}>
-          <h2 className={style['section-title']}>여행옵션</h2>
+          <h2 className={style['section-title']}>{translate['여행옵션']}</h2>
           <div
             className={style['add-option']}
             onClick={AddOption}>
             <AddIcon />
-            <span>여행옵션 추가하기</span>
+            <span>{translate['여행옵션 추가하기']}</span>
           </div>
           {options.map((option, optionIndex) => {
             return (
@@ -96,25 +102,31 @@ const AddProduct = () => {
           })}
         </section>
         <section className={style['section']}>
-          <h2 className={style['section-title']}>여행 상세정보 요약본</h2>
+          <h2 className={style['section-title']}>
+            {translate['여행 상세정보 요약본']}
+          </h2>
           <Summary />
         </section>
         <section className={style['section']}>
           <div className={style['detail-title-wrapper']}>
-            <h2 className={style['section-title']}>여행 상세정보</h2>
-            <span>(이미지, 포함 및 불포함 사항, 상세일정)</span>
+            <h2 className={style['section-title']}>
+              {translate['여행 상세정보']}
+            </h2>
+            <span>{translate['(이미지, 포함 및 불포함 사항, 상세일정)']}</span>
           </div>
           <Detail />
         </section>
         <section className={style['section']}>
-          <h2 className={style['section-title']}>여행 상품 카테고리</h2>
+          <h2 className={style['section-title']}>
+            {translate['여행 상품 카테고리']}
+          </h2>
           <Category />
         </section>
         <div className={style['button-wrapper']}>
           <Button
             variant='contained'
             onClick={requestAddProduct}>
-            새 상품 등록하기
+            {translate['새 상품 등록하기']}
           </Button>
         </div>
         <p

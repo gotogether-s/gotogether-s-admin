@@ -1,16 +1,23 @@
-import AddIcon from '@mui/icons-material/Add'
-import CloseIcon from '@mui/icons-material/Close'
-import { useState } from 'react'
 import Input from '@components/Input'
 import RadioButton from '@components/RadioButton'
-import OptionList from './OptionList'
+import AddIcon from '@mui/icons-material/Add'
+import CloseIcon from '@mui/icons-material/Close'
+import en from '@public/locales/en/addProduct.json'
+import ko from '@public/locales/ko/addProduct.json'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import style from './Option.module.scss'
+import OptionList from './OptionList'
 
 const Option = ({ optionIndex }) => {
+  const router = useRouter()
+  const { locale } = router
+  const translate = locale === 'en' ? en : ko
+
   const optionDtoListNameProps = {
-    label: '옵션 이름',
+    label: translate['옵션 이름'],
     name: 'name',
-    placeholder: '옵션 이름을 입력하세요',
+    placeholder: translate['옵션 이름을 입력하세요'],
     optionDtoList: true,
     optionIndex: optionIndex,
   }
@@ -40,7 +47,9 @@ const Option = ({ optionIndex }) => {
       className='addproduct-input-list'
       style={{ marginTop: optionIndex && '3rem' }}>
       <div className={style['section-subtitle-wrapper']}>
-        <h3>여행옵션 {optionIndex + 1}</h3>
+        <h3>
+          {translate['여행옵션']} {optionIndex + 1}
+        </h3>
         <RadioButton {...optionDtoListRequiredProps} />
       </div>
       <Input {...optionDtoListNameProps} />
@@ -61,7 +70,7 @@ const Option = ({ optionIndex }) => {
         className={style['add-option']}
         onClick={AddOptionList}>
         <AddIcon />
-        <span>항목 추가하기</span>
+        <span>{translate['항목 추가하기']}</span>
       </div>
     </div>
   )
