@@ -101,6 +101,7 @@ const SignInForm = () => {
               sx={{ width: '100%' }}
               onChange={handleSignInValuesChange}
               onBlur={removeInputSpaces}
+              autoComplete='off'
             />
             <p
               style={{
@@ -134,7 +135,18 @@ const SignInForm = () => {
             <Button
               variant='contained'
               type='submit'
-              sx={{ width: '100%' }}>
+              sx={{
+                width: '100%',
+                backgroundColor: '#4581F8',
+                boxShadow: 'none',
+                paddingTop: '1rem',
+                paddingBottom: '1rem',
+                fontWeight: '500',
+                '&:hover': {
+                  backgroundColor: '#4581F8',
+                  boxShadow: 'none',
+                },
+              }}>
               {translate['로그인']}
             </Button>
             <p
