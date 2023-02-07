@@ -56,7 +56,7 @@ Sep.27.2022 - Oct.12.2022
 
 ## ✨ Project Summary
 
-고투게더는 시니어층을 주요 대상으로 패키지 여행 상품을 예약할 수 있는 여행 서비스 플랫폼입니다. GoTogether admin website is for administrator to add their products to [their service website](https://www.gotogether-s.com/).
+고투게더는 시니어층을 주요 대상으로 패키지 여행 상품을 예약할 수 있는 여행 서비스 플랫폼입니다. GoTogether admin website is for the business administrator to add vacation pacakges products to [the service website](https://www.gotogether-s.com/).
 
 - Client: Go Together Travel Agency
 - Service: Website Design & Development
