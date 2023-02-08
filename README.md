@@ -20,7 +20,7 @@
 - [🚀 Quick Start](#-quick-start)
 - [🗓 Project Duration](#-project-duration)
 - [✨ Project Summary](#-project-summary)
-  - [문제점 & 기업측 요구사항](#문제점--기업측-요구사항)
+  - [Problems & Company's Requirements](#problems--companys-requirements)
 - [👀 Demo](#demo)
   - [Live Website](#live-website)
   - [How to Add Product](#how-to-add-product)
@@ -56,20 +56,21 @@ Sep.27.2022 - Oct.12.2022
 
 ## ✨ Project Summary
 
-고투게더는 시니어층을 주요 대상으로 패키지 여행 상품을 예약할 수 있는 여행 서비스 플랫폼입니다. GoTogether admin website is for the business administrator to add vacation pacakges products to [the service website](https://www.gotogether-s.com/).
+Go Together is a travel service platform where people can book vacation packages. The service targets mainly seniors who have more challenge planning travel. GoTogether admin website is for the business administrator to add vacation pacakges products to [their service website](https://www.gotogether-s.com/).
 
 - Client: Go Together Travel Agency
 - Service: Website Design & Development
 - Duration: Sep.27.2022 - Oct.12.2022
 - Team Members: 2
 
-### 문제점 & 기업측 요구사항
+### Problems & Company's Requirements
 
-기존 [고투게더 웹사이트](https://www.gotogether-s.com/)는 아임웹이라는 CMS(Content Management System)로 웹사이트가 만들어져 있어 한정된 기능만 사용이 가능하였습니다. 고투게더 서비스를 운영하는 회사 더샤이니에서 아래 3가지 요구사항을 반영한 새로운 웹사이트 제작을 요청하였습니다:
+[The existing website of Go Together](https://www.gotogether-s.com/) was created with a CMS (Content Management System) called I'm Web, allowing limited functions. The Shiny, which operates the Go Together service, requested the creation of a new website that reflects the following three requirements:
 
-1. 모바일 레이아웃을 기반으로 웹 페이지 리뉴얼
-2. 사용자 특성에 맞는 패키지 여행 상품 추천 기능
-3. 상품 등록이 가능한 관리자 페이지 제작 ✅
+1. Web page renewal based on the mobile layout
+2. Vacation packages recommendation function tailored to users' interest
+   [(Click here to see Go Together Service Github repo)](https://github.com/gotogether-s/)
+3. Create an admin page that allows product registration ✅
 
 <br />
 
