@@ -152,7 +152,7 @@ Go Together is a travel service platform where people can book vacation packages
 
 ## ✂️ Roles & Responsibilities
 
-| Hyeonah<br>(Front-End Development)                         | Hyeonseung<br>(Back-End Development)          |
-| ---------------------------------------------------------- | --------------------------------------------- |
-| [@hyeonahc](https://github.com/hyeonahc)                   | [@iheese](https://github.com/iheese)          |
-| Design mockup, Create Signin page, Create Add product page | Product API (create, read, update and delete) |
+| Hyeonah<br>(Front-End Development)                                | Hyeonseung<br>(Back-End Development)          |
+| ----------------------------------------------------------------- | --------------------------------------------- |
+| [@hyeonahc](https://github.com/hyeonahc)                          | [@iheese](https://github.com/iheese)          |
+| Design mockup, Create admin Sign in page, Create add product page | Product API (create, read, update and delete) |
