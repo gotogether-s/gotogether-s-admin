@@ -1,0 +1,58 @@
+.page-title {
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-bottom: 5rem;
+  .section-title {
+    margin-bottom: 2rem;
+  }
+}
+
+.add-option {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0.25rem;
+  color: #1f39ff;
+  &:hover {
+    cursor: pointer;
+  }
+  span {
+    padding-bottom: 0.1rem;
+  }
+}
+
+.detail-title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  .section-title {
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+  }
+  span {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
+
+.button-wrapper {
+  text-align: center;
+}
+
+.error-message {
+  text-align: center;
+  margin-top: 3rem;
+  color: tomato;
+  height: 1.6rem;
+}
+
+.success-message {
+  text-align: center;
+  margin-top: 3rem;
+  color: green;
+  height: 1.6rem;
+}

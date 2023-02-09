@@ -1,0 +1,11 @@
+.price-wrapper {
+  position: relative;
+  .price-inquiry {
+    position: absolute;
+    top: 0;
+    right: 0;
+    div {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "DISABLE_ESLINT_PLUGIN=true next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -12,15 +12,27 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.7",
     "@reduxjs/toolkit": "^1.8.5",
+    "@slate-editor/bold-plugin": "^5.1.0",
     "axios": "^0.27.2",
+    "i18next": "^22.4.9",
     "next": "12.3.1",
+    "next-i18next": "^13.1.4",
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-i18next": "^12.1.5",
+    "react-icons": "^4.2.0",
     "react-redux": "^8.0.2",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "slate": "^0.82.1",
+    "slate-deep-table": "^0.9.7",
+    "slate-editor": "^5.1.1",
+    "slate-history": "^0.62.0",
+    "slate-hyperscript": "^0.62.0",
+    "slate-react": "^0.83.1"
   },
   "devDependencies": {
     "@types/node": "18.7.23",

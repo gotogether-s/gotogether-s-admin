@@ -1,0 +1,18 @@
+{
+  "페이지 제목": "Sign In",
+
+  "관리자 계정으로 로그인해주세요": "Please log in with your admin account",
+
+  "이메일": "Email",
+  "이메일을 입력해주세요": "Enter your email",
+
+  "비밀번호": "Password",
+  "비밀번호를 입력해주세요": "Enter your password",
+
+  "로그인": "Sign in",
+
+  "에러: 이메일을 입력해주세요": "Please enter your email",
+  "에러: 비밀번호를 입력해주세요": "Please enter your password",
+  "올바른 이메일 형식이 아닙니다": "Please enter a valid email address",
+  "계정이 존재하지 않거나 올바른 비밀번호가 아닙니다": "Sorry, incorrect email or password. Please try again."
+}
