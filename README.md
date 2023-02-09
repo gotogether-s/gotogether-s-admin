@@ -6,7 +6,7 @@
 
 ![last commit](https://img.shields.io/github/last-commit/gotogether-s/gotogether-s?color=green)
 ![most language](https://img.shields.io/github/languages/top/gotogether-s/gotogether-s)
-[![release](https://img.shields.io/badge/release-v0.0.0-yellow)](https://github.com/gotogether-s/gotogether-s/tree/main)
+[![release](https://img.shields.io/badge/release-v0.1.0-yellow)](https://github.com/gotogether-s/gotogether-s/tree/main)
 
 </div>
 
@@ -50,6 +50,10 @@
 ## 🗓 Project Duration
 
 Sep 27, 2022 - Oct 12, 2022
+
+### **Timeline**
+
+- Version 0.1.0 released: Feb 8, 2023
 
 <br />
 
