@@ -28,7 +28,7 @@
   - [Front-End Tech Stack](#front-end-tech-stack)
   - [Back-End Tech Stack](#back-end-tech-stack)
   - [Other Tools](#other-tools)
-- [✂️ Roles & Responsibilities](#%EF%B8%8F-roles--responsibilities)
+- [🧑‍🤝‍🧑 Roles & Responsibilities](#-roles--responsibilities)
 
 <br />
 
@@ -150,7 +150,7 @@ Go Together is a travel service platform where people can book vacation packages
 
 <br />
 
-## ✂️ Roles & Responsibilities
+## 🧑‍🤝‍🧑 Roles & Responsibilities
 
 | Hyeonah<br>(Front-End Development)                                | Hyeonseung<br>(Back-End Development)          |
 | ----------------------------------------------------------------- | --------------------------------------------- |
