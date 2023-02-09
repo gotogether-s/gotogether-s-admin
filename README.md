@@ -1,13 +1,12 @@
 <br/>
 
-<div align="center"><a href="https://gotogether-s.vercel.app/" target="_blank"><img src="./public/main_logo.svg" width="300px"><p align="center">좋은 사람들과의 잊을 수 없는
-여행</p></a></div>
+<div align="center"><a href="https://gotogether-s.vercel.app/" target="_blank"><img src="./public/main_logo.svg" width="300px"><p align="center">좋은 사람들과의 잊을 수 없는 여행</p></a></div>
 
 <div align="center">
 
 ![last commit](https://img.shields.io/github/last-commit/gotogether-s/gotogether-s?color=green)
 ![most language](https://img.shields.io/github/languages/top/gotogether-s/gotogether-s)
-[![release](https://img.shields.io/badge/release-v0.0.0-yellow)](https://github.com/gotogether-s/gotogether-s/tree/main)
+[![release](https://img.shields.io/badge/release-v0.1.0-yellow)](https://github.com/gotogether-s/gotogether-s/tree/main)
 
 </div>
 
@@ -50,7 +49,11 @@
 
 ## 🗓 Project Duration
 
-Sep.27.2022 - Oct.12.2022
+Sep 27, 2022 - Oct 12, 2022
+
+### **Timeline**
+
+- Version 0.1.0 released: Feb 8, 2023
 
 <br />
 
@@ -60,7 +63,6 @@ Go Together is a travel service platform where people can book vacation packages
 
 - Client: Go Together Travel Agency
 - Service: Website Design & Development
-- Duration: Sep.27.2022 - Oct.12.2022
 - Team Members: 2
 
 ### Problems & Company's Requirements
@@ -150,7 +152,7 @@ Go Together is a travel service platform where people can book vacation packages
 
 ## ✂️ Roles & Responsibilities
 
-| Hyeonah<br>(Front-End Development)       | Hyeonseung<br>(Back-End Development)          |
-| ---------------------------------------- | --------------------------------------------- |
-| [@hyeonahc](https://github.com/hyeonahc) | [@iheese](https://github.com/iheese)          |
-| Signin page, Add product page            | Product API (create, read, update and delete) |
+| Hyeonah<br>(Front-End Development)                         | Hyeonseung<br>(Back-End Development)          |
+| ---------------------------------------------------------- | --------------------------------------------- |
+| [@hyeonahc](https://github.com/hyeonahc)                   | [@iheese](https://github.com/iheese)          |
+| Design mockup, Create Signin page, Create Add product page | Product API (create, read, update and delete) |
