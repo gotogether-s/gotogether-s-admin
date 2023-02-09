@@ -50,7 +50,7 @@
 
 ## 🗓 Project Duration
 
-Sep.27.2022 - Oct.12.2022
+Sep 27, 2022 - Oct 12, 2022
 
 <br />
 
@@ -60,7 +60,6 @@ Go Together is a travel service platform where people can book vacation packages
 
 - Client: Go Together Travel Agency
 - Service: Website Design & Development
-- Duration: Sep.27.2022 - Oct.12.2022
 - Team Members: 2
 
 ### Problems & Company's Requirements
